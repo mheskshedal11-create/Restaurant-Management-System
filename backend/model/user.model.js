@@ -21,15 +21,19 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    useType: {
+    userType: {
         type: String,
-        required: ture,
+        required: true,
         default: 'client',
         emum: ['Client', 'admin', 'vendor', 'driver']
     },
     profile: {
         type: String,
         default: 'https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3'
+    },
+    answer: {
+        type: String,
+        required: [true, 'Anser is required']
     }
 
 
