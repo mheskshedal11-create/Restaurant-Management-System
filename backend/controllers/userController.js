@@ -92,3 +92,28 @@ export const resetPasswordController = async (req, res) => {
         })
     }
 }
+
+export const deleteAccount = async (req, res) => {
+    try {
+        const user = await User.findByIdAndDelete(req.userId)
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Your account has been deleted"
+        })
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({
+            success: false,
+            message: "Something went wrong"
+        })
+    }
+}
