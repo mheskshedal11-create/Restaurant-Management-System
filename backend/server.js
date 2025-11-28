@@ -3,12 +3,9 @@ import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import dbConnection from "./config/db.js";
-import router from "./routes/authRoutes.js";
-import userRouter from "./routes/userRoute.js";
-import restaurantRouter from "./routes/restaurantRoutes.js";
-
-
-
+import authRouter from "./routes/auth.router.js";
+import userRouter from "./routes/user.router.js";
+import categoryRouter from "./routes/category.router.js";
 dotenv.config();
 
 const app = express();
@@ -20,9 +17,20 @@ app.use(morgan("dev"));
 
 dbConnection();
 
-app.use("/api/v1/auth", router);
-app.use('/api/v1/user', userRouter);
-app.use('/api/v1/resturent', restaurantRouter)
+
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/user', userRouter)
+app.use('/api/v1/category', categoryRouter)
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    const statusCode = err.statusCode || 500;
+    res.status(statusCode).json({
+        success: false,
+        message: err.message || "Internal Server Error",
+    });
+});
+
 
 const PORT = process.env.PORT || 8000;
 

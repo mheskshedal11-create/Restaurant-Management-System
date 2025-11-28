@@ -1,0 +1,92 @@
+backend/
+│
+├── src/
+│   ├── config/
+│   │   ├── db.js//complete
+│   │   ├── cloudinaryConfig.js        (optional: for images)
+│   │   └── paymentGatewayConfig.js    (optional: Stripe/Khalti)
+│   │
+│   ├── constants/
+│   │   ├── roles.js                   (admin, user, delivery, kitchen)
+│   │   └── orderStatus.js             (pending, cooking, delivered etc.)
+│   │
+│   ├── validations/
+│   │   ├── auth.validation.js//complete
+│   │   ├── menu.validation.js
+│   │   ├── cart.validation.js
+│   │   ├── order.validation.js
+│   │   └── payment.validation.js      (optional)
+│   │
+│   ├── models/
+│   │   ├── User.model.js//complete
+│   │   ├── MenuCategory.model.js
+│   │   ├── MenuItem.model.js
+│   │   ├── Cart.model.js
+│   │   ├── Order.model.js
+│   │   ├── Payment.model.js           (optional)
+│   │   ├── DeliveryPerson.model.js    (optional)
+│   │   
+│   │
+│   ├── controllers/
+│   │   ├── auth.controller.js//complete
+│   │   ├── user.controller.js//complete
+│   │   ├── menu.controller.js
+│   │   ├── cart.controller.js
+│   │   ├── order.controller.js
+│   │   ├── admin.controller.js
+│   │   ├── delivery.controller.js     (optional)
+│   │   ├── payment.controller.js      (optional)
+│   │   └── upload.controller.js       (optional)
+│   │
+│   ├── routes/
+│   │   ├── auth.routes.js//complete
+│   │   ├── user.routes.js//complete
+│   │   ├── menu.routes.js
+│   │   ├── cart.routes.js
+│   │   ├── order.routes.js
+│   │   ├── admin.routes.js
+│   │   ├── delivery.routes.js         (optional)
+│   │   └── payment.routes.js          (optional)
+│   │
+│   ├── middleware/
+│   │   ├── auth.middleware.js         //complete
+│   │   ├── role.middleware.js         (RBAC)
+│   │   ├── error.middleware.js        //complete
+│   │   ├── validate.middleware.js    //complete
+│   │   └── upload.middleware.js      //complete
+│   │
+│   ├── services/
+│   │   ├── auth.service.js 
+│   │   ├── user.service.js
+│   │   ├── cart.service.js
+│   │   ├── order.service.js
+│   │   ├── payment.service.js         (optional)
+│   │   ├── delivery.service.js        (optional)
+│   │   └── notification.service.js    (email/SMS/push)
+│   │
+│   ├── utils/
+│   │   ├── generateToken.js
+│   │   ├── generateRefreshToken.js    (optional)
+│   │   ├── sendEmail.js               (optional)
+│   │   ├── formatResponse.js
+│   │   ├── logger.js
+│   │   └── helpers.js
+│   │
+│   ├── docs/
+│   │   ├── apiDocs.json               (Swagger/OpenAPI)
+│   │   └── ERD.png                    (Database diagram)
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── tests/
+│   ├── auth.test.js
+│   ├── menu.test.js
+│   ├── order.test.js
+│   └── user.test.js
+│
+├── .env
+├── .gitignore
+├── package.json
+├── README.md
+└── ecosystem.config.js                (optional: PM2 deploy)
