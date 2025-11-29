@@ -5,8 +5,8 @@ import upload from "../middleware/multer.middleware.js";
 
 const userRouter = express.Router()
 
-userRouter.get('/getUser', authMiddle, getUserController)
-userRouter.put('/upateUser', upload.single('profileImage'), authMiddle, updateController)
-userRouter.delete('/deleteaccount', authMiddle, deleteAccount)
+userRouter.get('/getUser', authMiddle(), getUserController);
+userRouter.put('/updateUser', authMiddle(), upload.single('profileImage'), updateController)
+userRouter.delete('/deleteaccount', authMiddle(), deleteAccount)
 
 export default userRouter
