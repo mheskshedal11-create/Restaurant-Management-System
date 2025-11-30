@@ -8,6 +8,7 @@ import userRouter from "./routes/user.router.js";
 import categoryRouter from "./routes/category.router.js";
 import menuItemRouter from "./routes/menuitem.router.js";
 import cookieParser from "cookie-parser";
+import orderRouter from "./routes/order.router.js";
 dotenv.config();
 
 const app = express();
@@ -25,6 +26,7 @@ app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/user', userRouter)
 app.use('/api/v1/category', categoryRouter)
 app.use('/api/v1/menu-item', menuItemRouter)
+app.use('/api/v1/order', orderRouter)
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
